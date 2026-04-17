@@ -1,0 +1,131 @@
+:root {
+  --accent: #2a9d4e;
+  --accent-dark: #228a40;
+  --card-img-ratio: 2/3;
+}
+
+.card-img-top {
+  aspect-ratio: var(--card-img-ratio);
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.card-title:hover {
+  color: var(--accent);
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.book-price {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.genre-link {
+  display: block;
+  padding: 0.3rem 0.75rem;
+  color: #333;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.genre-link:hover {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.genre-link.active {
+  border-left-color: var(--accent);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.filter-aside {
+  min-width: 180px;
+  max-width: 180px;
+}
+
+.detail-cover {
+  max-width: 220px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.detail-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 576px) {
+  .detail-layout { flex-direction: column; }
+  .detail-cover { max-width: 100%; }
+  .filter-aside { min-width: 100%; max-width: 100%; }
+}
+
+.page-item.active .page-link {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.page-link {
+  color: var(--accent);
+}
+
+.page-link:hover {
+  color: var(--accent-dark);
+}
+
+/* ── Debug mode ── */
+body.debug nav,
+body.debug footer,
+body.debug aside,
+body.debug section,
+body.debug .card,
+body.debug .card-body,
+body.debug .card-img-top,
+body.debug .detail-layout,
+body.debug .detail-cover,
+body.debug #detail,
+body.debug .pagination,
+body.debug #genre-list,
+body.debug .container,
+body.debug .container-fluid {
+  border: 2px solid gold !important;
+  box-sizing: border-box;
+}
+
+body.debug [data-debug-label]::before {
+  content: attr(data-debug-label);
+  display: block;
+  color: purple;
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 1px 5px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  position: relative;
+  z-index: 10;
+}
